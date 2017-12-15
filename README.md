@@ -1,2 +1,4 @@
-# HM_MV_CNN
-HM265 with MV extraction to be used for action classification using CNNs
+# mvcnn
+Video Classification Using H.264 Motion Compensation Parameters
+
+.
