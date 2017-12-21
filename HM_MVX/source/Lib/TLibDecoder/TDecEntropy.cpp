@@ -129,6 +129,35 @@ Void TDecEntropy::decodePredInfo    ( TComDataCU* pcCU, UInt uiAbsPartIdx, UInt 
   else                                                                // if it is Inter mode, encode motion vector and reference index
   {
     decodePUWise( pcCU, uiAbsPartIdx, uiDepth, pcSubCU );
+/*
+//added by jubran to extarct MVs
+int x_ = 0;
+int y_ = 0;
+int x_SPU=0;
+int y_SPU=0;
+int dx_ = 0;
+int dy_ = 0;
+int ix=0;
+int iy=0;
+int inc=16;
+
+x_ = pcCU->getCUPelX();
+y_ = pcCU->getCUPelY();
+for ( ix = 0; ix < 4; ix++)
+{
+ for (iy = 0; iy < 4; iy++ )
+ {
+ x_SPU=x_+(ix*inc);
+ y_SPU=y_+(iy*inc);
+ dx_ = (int) pcCU->getCUMvField(RefPicList(0))->getMvd( uiAbsPartIdx+ix*inc+iy).getHor();
+ dy_ = (int) pcCU->getCUMvField(RefPicList(0))->getMvd( uiAbsPartIdx+ix*inc+iy).getVer(); 
+ printf("\nix=%3d, iy=%3d, x_SPU=%3d, y_SPU=%3d, MVx=%3d, MVy=%3d",ix,iy,x_SPU,y_SPU,dx_,dy_);
+ }
+}
+printf("\n=================================================================");
+// end add by jubran
+*/
+
   }
 }
 
@@ -252,8 +281,305 @@ Void TDecEntropy::decodePUWise( TComDataCU* pcCU, UInt uiAbsPartIdx, UInt uiDept
           decodeRefFrmIdxPU( pcCU,    uiSubPartIdx,              uiDepth, uiPartIdx, RefPicList( uiRefListIdx ) );
           decodeMvdPU      ( pcCU,    uiSubPartIdx,              uiDepth, uiPartIdx, RefPicList( uiRefListIdx ) );
           decodeMVPIdxPU   ( pcSubCU, uiSubPartIdx-uiAbsPartIdx, uiDepth, uiPartIdx, RefPicList( uiRefListIdx ) );
+/*
+//added by jubran to extarct MVs
+int x_ = 0;
+int y_ = 0;
+int x_SPU=0;
+int y_SPU=0;
+int dx_ = 0;
+int dy_ = 0;
+int ix=0;
+int iy=0;
+int inc=16;
+
+x_ = pcCU->getCUPelX();
+y_ = pcCU->getCUPelY();
+dx_ = (int) pcCU->getCUMvField(RefPicList(uiRefListIdx))->getMvd( uiSubPartIdx).getHor();
+dy_ = (int) pcCU->getCUMvField(RefPicList(uiRefListIdx))->getMvd( uiSubPartIdx).getVer();
+
+printf("uiAbsPartIdx=%4d, Number of Sub-Partitions=%1d (PUOffset=%3d), PU Idx=%3d, uiSubPartIdx=%4d (%4d), Position=<%3d, %3d>, MVD horizontal=%3d, MVD vertical=%3d\n",uiAbsPartIdx,uiNumPU,uiPUOffset,uiPartIdx,uiSubPartIdx,uiSubPartIdx-uiAbsPartIdx,x_,y_,dx_,dy_); 
+
+switch ( ePartSize ) {
+case SIZE_2Nx2N:
+{
+	for ( ix = 0; ix < 4; ix++)
+	 {
+	  for (iy = 0; iy < 4; iy++ )
+      	  {
+	  x_SPU=x_+(ix*inc);
+	  y_SPU=y_+(iy*inc);
+	  printf("\nix=%3d, iy=%3d, x_SPU=%3d, y_SPU=%3d, MVx=%3d, MVy=%3d",ix,iy,x_SPU,y_SPU,dx_,dy_);
+      	  }
+	 }
+  	printf("\nsymmetric motion partition, 2Nx2N\n\n");
+	break;
+}
+case SIZE_2NxN:
+{
+	for ( ix = 0; ix < 2; ix++)
+         {
+          for (iy = 0; iy < 4; iy++ )
+          {
+          x_SPU=x_+(ix*inc);
+          y_SPU=y_+(iy*inc);
+          printf("\nix=%3d, iy=%3d, x_SPU=%3d, y_SPU=%3d, MVx=%3d, MVy=%3d",ix,iy,x_SPU,y_SPU,dx_,dy_);
+          }
+         }
+  	printf("\nsymmetric motion partition, 2NxN\n\n");
+	break;
+}
+case SIZE_Nx2N:
+{
+	for ( ix = 0; ix < 4; ix++)
+         {
+          for (iy = 0; iy < 2; iy++ )
+          {
+          x_SPU=x_+(ix*inc);
+          y_SPU=y_+(iy*inc);
+          printf("\nix=%3d, iy=%3d, x_SPU=%3d, y_SPU=%3d, MVx=%3d, MVy=%3d",ix,iy,x_SPU,y_SPU,dx_,dy_);
+          }
+         }
+  	printf("\nsymmetric motion partition, Nx2N\n\n");
+	break;
+}
+case SIZE_NxN:
+{
+	for ( ix = 0; ix < 4; ix++)
+         {
+          for (iy = 0; iy < 4; iy++ )
+          {
+          x_SPU=x_+(ix*inc);
+          y_SPU=y_+(iy*inc);
+          printf("\nix=%3d, iy=%3d, x_SPU=%3d, y_SPU=%3d, MVx=%3d, MVy=%3d",ix,iy,x_SPU,y_SPU,dx_,dy_);
+          }
+         }
+  	printf("\nsymmetric motion partition, NxN\n\n");
+	break;
+}
+case SIZE_2NxnU:
+{
+  printf("NxnU : asymmetric motion partition, 2Nx( N/2) + 2Nx(3N/2)\n\n");
+break;
+}
+case SIZE_2NxnD:
+{
+  printf("2NxnD : asymmetric motion partition, 2Nx(3N/2) + 2Nx( N/2)\n\n");
+break;
+}
+case SIZE_nLx2N:
+{
+  printf("nLx2N : asymmetric motion partition, ( N/2)x2N + (3N/2)x2N\n\n");
+break;
+}
+case SIZE_nRx2N:
+{
+  printf("2Rx2N : asymmetric motion partition, (3N/2)x2N + ( N/2)x2N\n\n");
+break;
+}
+default:
+{
+printf("Unknown Size_?x?\n\n"); 
+}
+}
+*/
+
+
+/*
+switch( eCUMode )
+  {
+    case SIZE_2Nx2N:
+      for ( i = 0; i < numElements; i++ )
+      {
+        p[ i ] = val;
+      }
+      break;
+
+    case SIZE_2NxN:
+      numElements >>= 1;
+      for ( i = 0; i < numElements; i++ )
+      {
+        p[ i ] = val;
+      }
+      break;
+
+    case SIZE_Nx2N:
+      numElements >>= 2;
+      for ( i = 0; i < numElements; i++ )
+      {
+        p[ i                   ] = val;
+        p[ i + 2 * numElements ] = val;
+      }
+      break;
+
+    case SIZE_NxN:
+      numElements >>= 2;
+      for ( i = 0; i < numElements; i++)
+      {
+        p[ i ] = val;
+      }
+      break;
+    case SIZE_2NxnU:
+    {
+      Int iCurrPartNumQ = numElements>>2;
+      if( iPartIdx == 0 )
+      {
+        T *pT  = p;
+        T *pT2 = p + iCurrPartNumQ;
+        for (i = 0; i < (iCurrPartNumQ>>1); i++)
+        {
+          pT [i] = val;
+          pT2[i] = val;
+        }
+      }
+      else
+      {
+        T *pT  = p;
+        for (i = 0; i < (iCurrPartNumQ>>1); i++)
+        {
+          pT[i] = val;
+        }
+
+        pT = p + iCurrPartNumQ;
+        for (i = 0; i < ( (iCurrPartNumQ>>1) + (iCurrPartNumQ<<1) ); i++)
+        {
+          pT[i] = val;
+        }
+      }
+      break;
+    }
+  case SIZE_2NxnD:
+    {
+      Int iCurrPartNumQ = numElements>>2;
+      if( iPartIdx == 0 )
+      {
+        T *pT  = p;
+        for (i = 0; i < ( (iCurrPartNumQ>>1) + (iCurrPartNumQ<<1) ); i++)
+        {
+          pT[i] = val;
+        }
+        pT = p + ( numElements - iCurrPartNumQ );
+        for (i = 0; i < (iCurrPartNumQ>>1); i++)
+        {
+          pT[i] = val;
+        }
+      }
+      else
+      {
+        T *pT  = p;
+        T *pT2 = p + iCurrPartNumQ;
+        for (i = 0; i < (iCurrPartNumQ>>1); i++)
+        {
+          pT [i] = val;
+          pT2[i] = val;
+        }
+      }
+      break;
+    }
+  case SIZE_nLx2N:
+    {
+      Int iCurrPartNumQ = numElements>>2;
+      if( iPartIdx == 0 )
+      {
+        T *pT  = p;
+        T *pT2 = p + (iCurrPartNumQ<<1);
+        T *pT3 = p + (iCurrPartNumQ>>1);
+        T *pT4 = p + (iCurrPartNumQ<<1) + (iCurrPartNumQ>>1);
+
+        for (i = 0; i < (iCurrPartNumQ>>2); i++)
+        {
+          pT [i] = val;
+          pT2[i] = val;
+          pT3[i] = val;
+          pT4[i] = val;
+        }
+      }
+      else
+      {
+        T *pT  = p;
+        T *pT2 = p + (iCurrPartNumQ<<1);
+        for (i = 0; i < (iCurrPartNumQ>>2); i++)
+        {
+          pT [i] = val;
+          pT2[i] = val;
+        }
+
+        pT  = p + (iCurrPartNumQ>>1);
+        pT2 = p + (iCurrPartNumQ<<1) + (iCurrPartNumQ>>1);
+        for (i = 0; i < ( (iCurrPartNumQ>>2) + iCurrPartNumQ ); i++)
+        {
+          pT [i] = val;
+          pT2[i] = val;
+        }
+      }
+      break;
+    }
+  case SIZE_nRx2N:
+    {
+      Int iCurrPartNumQ = numElements>>2;
+      if( iPartIdx == 0 )
+      {
+        T *pT  = p;
+        T *pT2 = p + (iCurrPartNumQ<<1);
+        for (i = 0; i < ( (iCurrPartNumQ>>2) + iCurrPartNumQ ); i++)
+        {
+          pT [i] = val;
+          pT2[i] = val;
+        }
+
+        pT  = p + iCurrPartNumQ + (iCurrPartNumQ>>1);
+        pT2 = p + numElements - iCurrPartNumQ + (iCurrPartNumQ>>1);
+        for (i = 0; i < (iCurrPartNumQ>>2); i++)
+        {
+          pT [i] = val;
+          pT2[i] = val;
+        }
+      }
+      else
+      {
+        T *pT  = p;
+        T *pT2 = p + (iCurrPartNumQ>>1);
+        T *pT3 = p + (iCurrPartNumQ<<1);
+        T *pT4 = p + (iCurrPartNumQ<<1) + (iCurrPartNumQ>>1);
+        for (i = 0; i < (iCurrPartNumQ>>2); i++)
+        {
+          pT [i] = val;
+          pT2[i] = val;
+          pT3[i] = val;
+          pT4[i] = val;
+        }
+      }
+      break;
+    }
+    default:
+      assert(0);
+      break;
+  }
+}
+*/
+
+/*FILE *mvout = fopen("mv.bin", "a+b");
+fwrite(&(x_),sizeof(int),1,mvout);
+fwrite(&(y_), sizeof(int), 1, mvout) ;
+fwrite(&(dx_), sizeof(int), 1, mvout) ;
+fwrite(&(dy_), sizeof(int), 1, mvout) ;
+fclose(mvout);
+// end of addition by Jubran
+*/
+	
+/* added by jubran to show the way the MVs was written to mv.bin
+  FILE *mvout = fopen("mv.bin","a+b") ;
+  fwrite(&(p_Vid->frame_no), sizeof(int), 1, mvout) ;
+  fwrite(&(currMB->mb_type), sizeof(int), 1, mvout) ;
+  fwrite(&(x_), sizeof(int), 1, mvout) ;
+  fwrite(&(y_), sizeof(int), 1, mvout) ;
+  fwrite(&(dx_), sizeof(int), 1, mvout) ;
+  fwrite(&(dy_), sizeof(int), 1, mvout) ;
+  fclose (mvout) ;
+*/
+
 #if ENVIRONMENT_VARIABLE_DEBUG_AND_TEST
-          if (bDebugPredEnabled)
+          if (bDebugPredEnabled) //commented by jubran to write the MV
           {
             std::cout << "refListIdx: " << uiRefListIdx << std::endl;
             std::cout << "MVD horizontal: " << pcCU->getCUMvField(RefPicList(uiRefListIdx))->getMvd( uiAbsPartIdx ).getHor() << std::endl;
@@ -273,7 +599,8 @@ Void TDecEntropy::decodePUWise( TComDataCU* pcCU, UInt uiAbsPartIdx, UInt uiDept
       pcCU->setInterDirSubParts( 1, uiSubPartIdx, uiPartIdx, uiDepth);
     }
   }
-  return;
+
+return;
 }
 
 /** decode inter direction for a PU block

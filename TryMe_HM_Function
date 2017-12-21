@@ -1,0 +1,38 @@
+#!/bin/bash
+clear
+
+#QP=$1
+#NumberFrames=$2
+#mbmapXxX=$3
+#InputFile=$4
+
+echo %#######################################################################
+echo MV QP=$1 , MV Resolution=$2
+echo %#######################################################################
+
+#%%%%%%%%%% deleting .265 videos from previous run
+rm ./HM_MVX/vid/box.265
+
+#%%%%%%%%%% deleting estracted MVs from previous run
+rm ./mbmap/mv_HM.bin
+
+#%%%%%%%%%% encode and decode using Original HM to encode and decode (from yuv to 265)
+cd ./HM_MVX/bin
+rm mv.bin
+sudo ./TAppEncoderStatic -c ../cfg/encoder_Jubran.cfg --InputFile="../vid/box.yuv" --QP=$1 --FramesToBeEncoded=$2 --MaxCUSize=64 --MaxPartitionDepth=4 --BitstreamFile="../vid/box.265"
+sudo ./TAppDecoderStatic --BitstreamFile="../vid/box.265" --ReconFile="box_decoded.yuv"
+cp mv.bin ../../mbmap/mv_dec.bin
+
+#%%%%%%%%%% Extracting the MVs
+cd ../../mbmap
+if [ $3 -eq 4 ] || [ $3 -eq 8 ] || [ $3 -eq 16 ]
+ then
+ ./mbmap -h 240 -w 320 -$3 -o mv_HM.bin mv_dec.bin
+  else
+  echo "mbmap: MV Reso;ution is not identified"
+  exit -1;
+fi
+
+#%%%%%%%%%% copying the MVs to the directory to be processed by matlab
+mv ./mv_HM.bin /media/sf_VisualizeMVX/MVbins/HMMV_QP_$1_MVRes_$3.bin
+

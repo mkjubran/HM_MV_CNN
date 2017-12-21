@@ -38,6 +38,7 @@
 #include "TDecCu.h"
 #include "TLibCommon/TComTU.h"
 #include "TLibCommon/TComPrediction.h"
+#include <math.h>    //added by Jubran 
 
 //! \ingroup TLibDecoder
 //! \{
@@ -146,6 +147,7 @@ Void TDecCu::decodeCtu( TComDataCU* pCtu, Bool& isLastCtuOfSliceSegment )
 
   // start from the top level CU
   xDecodeCU( pCtu, 0, 0, isLastCtuOfSliceSegment);
+
 }
 
 /** 
@@ -315,6 +317,48 @@ Void TDecCu::xDecodeCU( TComDataCU*const pcCU, const UInt uiAbsPartIdx, const UI
 
   // prediction mode ( Intra : direction mode, Inter : Mv, reference idx )
   m_pcEntropyDecoder->decodePredInfo( pcCU, uiAbsPartIdx, uiDepth, m_ppcCU[uiDepth]);
+
+// added by Jubran to extract MVs
+int x_ = 0;
+int y_ = 0;
+int x_SPU=0;
+int y_SPU=0;
+int dx_ = 0;
+int dy_ = 0;
+int ix=0;
+int iy=0;
+int Frame_no=0;
+int CTU_type=0;
+int SubPartSize = maxCuWidth  >> uiDepth;
+int inc = maxCuWidth / SubPartSize;
+
+x_=uiLPelX;
+y_=uiTPelY; 
+Frame_no=pcPic->getPOC();
+
+FILE *mvout = fopen("mv.bin", "a+b");
+printf("\nPOC=%3d, uiLPelX=%3d, uiRPelX=%3d, uiTPelY=%3d, uiBPelY=%3d, uiCurNumParts=%2d, uiDepth=%1d, SubPartSize=%2d\n",Frame_no,uiLPelX,uiRPelX,uiTPelY,uiBPelY,uiCurNumParts,uiDepth,SubPartSize);
+for ( ix = 0; ix < sqrt (SubPartSize); ix++)
+{
+ for (iy = 0; iy < sqrt (SubPartSize); iy++ )
+ {
+ x_SPU=x_+(ix*inc);
+ y_SPU=y_+(iy*inc);
+ dx_ = (int) pcCU->getCUMvField(RefPicList(0))->getMvd( uiAbsPartIdx+ix*inc+iy).getHor();
+ dy_ = (int) pcCU->getCUMvField(RefPicList(0))->getMvd( uiAbsPartIdx+ix*inc+iy).getVer(); 
+
+fwrite(&(Frame_no), sizeof(int), 1, mvout) ;
+fwrite(&(CTU_type), sizeof(int), 1, mvout) ;
+fwrite(&(x_SPU),sizeof(int),1,mvout);
+fwrite(&(y_SPU), sizeof(int), 1, mvout) ;
+fwrite(&(dx_), sizeof(int), 1, mvout) ;
+fwrite(&(dy_), sizeof(int), 1, mvout) ; 
+printf("[(%3d,%3d),%2d,%2d]",x_SPU,y_SPU,dx_,dy_);
+ }
+printf("\n");
+}
+fclose(mvout);
+// end add by Jubran
 
   // Coefficient decoding
   Bool bCodeDQP = getdQPFlag();
