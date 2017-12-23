@@ -7,7 +7,7 @@ clear
 #InputFile=$4
 
 echo %#######################################################################
-echo MV QP=$1 , MV Resolution=$2
+echo MV QP=$1 , MV Resolution=$3
 echo %#######################################################################
 
 #%%%%%%%%%% deleting .265 videos from previous run
