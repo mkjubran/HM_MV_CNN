@@ -29,10 +29,9 @@ if [ $3 -eq 4 ] || [ $3 -eq 8 ] || [ $3 -eq 16 ]
  then
  ./mbmap -h 240 -w 320 -$3 -o mv_HM.bin mv_dec.bin
   else
-  echo "mbmap: MV Reso;ution is not identified"
+  echo "mbmap: MV Resolution is not identified"
   exit -1;
 fi
 
 #%%%%%%%%%% copying the MVs to the directory to be processed by matlab
 mv ./mv_HM.bin /media/sf_VisualizeMVX/MVbins/HMMV_QP_$1_MVRes_$3.bin
-

@@ -60,6 +60,12 @@ int main(int argc, char* argv[])
   fprintf( stdout, NVM_BITS );
   fprintf( stdout, "\n" );
 
+
+ //Added by Jubran to create the MVenc.bin Motion vectors file
+FILE *mvout = fopen("mv.bin", "w");
+fclose(mvout);
+// end of Jubran to create the MVenc.bin Motion vectors file
+
   // create application decoder class
   cTAppDecTop.create();
 

@@ -259,10 +259,10 @@ if(!(pcCU->isIntra( uiAbsPartIdx) ) )
 {
 
 TComPic* pcPic        = pcCU->getPic();
-const TComSPS &sps    = pcPic->getPicSym()->getSPS(); 	//only for debuging
-const UInt maxCuWidth = sps.getMaxCUWidth();			//only for debuging
-const UInt maxCuHeight= sps.getMaxCUHeight();			//only for debuging
-UInt uiCurNumParts    = pcPic->getNumPartitionsInCtu() >> (uiDepth<<1);	//only for debuging
+//const TComSPS &sps    = pcPic->getPicSym()->getSPS(); 	//only for debuging
+//const UInt maxCuWidth = sps.getMaxCUWidth();			//only for debuging
+//const UInt maxCuHeight= sps.getMaxCUHeight();			//only for debuging
+//UInt uiCurNumParts    = pcPic->getNumPartitionsInCtu() >> (uiDepth<<1);	//only for debuging
 
 int x_SPU = 0;
 int y_SPU = 0;
@@ -272,13 +272,13 @@ int ix = 0;
 int iy = 0;
 int Frame_no = 0;
 int CTU_type = 0;
-int SubPartSize = maxCuWidth  >> uiDepth;		//only for debuging
+//int SubPartSize = maxCuWidth  >> uiDepth;		//only for debuging
 int iPartIdx = 0;
 
 UInt uiLPelX   = pcCU->getCUPelX() + g_auiRasterToPelX[ g_auiZscanToRaster[uiAbsPartIdx] ];
-UInt uiRPelX   = uiLPelX + (maxCuWidth>>uiDepth)  - 1;	//only for debuging
+//UInt uiRPelX   = uiLPelX + (maxCuWidth>>uiDepth)  - 1;	//only for debuging
 UInt uiTPelY   = pcCU->getCUPelY() + g_auiRasterToPelY[ g_auiZscanToRaster[uiAbsPartIdx] ];
-UInt uiBPelY   = uiTPelY + (maxCuHeight>>uiDepth) - 1;	//only for debuging
+//UInt uiBPelY   = uiTPelY + (maxCuHeight>>uiDepth) - 1;	//only for debuging
 
 Frame_no=pcPic->getPOC();
 
@@ -286,10 +286,10 @@ Int  iWidth=0;
 Int  iHeight=0;
 UInt uiPartAddr;
 
-FILE *mvout_bug = fopen("mv_bug.dat","a+b");		//only for debuging
+//FILE *mvout_bug = fopen("mv_bug.dat","a+b");		//only for debuging
 FILE *mvout = fopen("mv.bin", "a+b");
 
-fprintf(mvout_bug,"\n\nPOC=%3d, uiLPelX=%3d, uiRPelX=%3d, uiTPelY=%3d, uiBPelY=%3d, uiCurNumParts=%2d, uiDepth=%1d, SubPartSize=%2d\n",Frame_no,uiLPelX,uiRPelX,uiTPelY,uiBPelY,uiCurNumParts,uiDepth,SubPartSize);	//only for debuging
+//fprintf(mvout_bug,"\n\nPOC=%3d, uiLPelX=%3d, uiRPelX=%3d, uiTPelY=%3d, uiBPelY=%3d, uiCurNumParts=%2d, uiDepth=%1d, SubPartSize=%2d\n",Frame_no,uiLPelX,uiRPelX,uiTPelY,uiBPelY,uiCurNumParts,uiDepth,SubPartSize);	//only for debuging
 
 pcCU->getPartIndexAndSize( iPartIdx, uiPartAddr, iWidth, iHeight );
 dx_ = (int) pcCU->getCUMvField(RefPicList(uiRefListIdx))->getMvd( uiAbsPartIdx ).getHor();
@@ -303,7 +303,7 @@ for ( ix = 0; ix < iWidth/4; ix++)
  {
  x_SPU=uiLPelX+(ix*4);
  y_SPU=uiTPelY+(iy*4);
- fprintf(mvout_bug,"[(%3d,%3d),<%2d,%2d>]",x_SPU,y_SPU,dx_,dy_); 	//only for debuging
+// fprintf(mvout_bug,"[(%3d,%3d),<%2d,%2d>]",x_SPU,y_SPU,dx_,dy_); 	//only for debuging
 
  fwrite(&(Frame_no), sizeof(int), 1, mvout) ;
  fwrite(&(CTU_type), sizeof(int), 1, mvout) ;
@@ -312,11 +312,11 @@ for ( ix = 0; ix < iWidth/4; ix++)
  fwrite(&(dx_), sizeof(int), 1, mvout) ;
  fwrite(&(dy_), sizeof(int), 1, mvout) ;
  }
-fprintf(mvout_bug,"\n");	//only for debuging
+//fprintf(mvout_bug,"\n");	//only for debuging
 }
 
 fclose(mvout);
-fclose(mvout_bug);	//only for debuging
+//fclose(mvout_bug);	//only for debuging
 }
 // end add by Jubran
 

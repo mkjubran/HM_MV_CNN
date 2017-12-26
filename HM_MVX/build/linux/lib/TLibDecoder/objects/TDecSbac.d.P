@@ -37,7 +37,8 @@ objects/TDecSbac.d.o: \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComTU.h \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComTrQuant.h \
- /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComYuv.h
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComYuv.h \
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComCodingStatistics.h
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.cpp :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecSbac.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecEntropy.h :
@@ -77,3 +78,4 @@ objects/TDecSbac.d.o: \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComTU.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComTrQuant.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComYuv.h :
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComCodingStatistics.h :

@@ -46,7 +46,8 @@ objects/TDecCAVLC.r.o: \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoderCABAC.h \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComCABACTables.h \
- /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComChromaFormat.h
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComChromaFormat.h \
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComCodingStatistics.h
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecCAVLC.cpp :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecCAVLC.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecEntropy.h :
@@ -95,3 +96,4 @@ objects/TDecCAVLC.r.o: \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoderCABAC.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComCABACTables.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComChromaFormat.h :
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComCodingStatistics.h :

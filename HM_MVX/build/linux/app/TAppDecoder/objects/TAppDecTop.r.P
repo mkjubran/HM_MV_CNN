@@ -59,7 +59,8 @@ objects/TAppDecTop.r.o: \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/TAppDecCfg.h \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/AnnexBread.h \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/NALread.h \
- /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/NAL.h
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/NAL.h \
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/TComCodingStatistics.h
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/TAppDecTop.cpp :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/App/TAppDecoder/TAppDecTop.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibVideoIO/TVideoIOYuv.h :
@@ -121,3 +122,4 @@ objects/TAppDecTop.r.o: \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/AnnexBread.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibDecoder/NALread.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/NAL.h :
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/app/TAppDecoder/../../../../source/Lib/TLibCommon/TComCodingStatistics.h :

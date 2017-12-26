@@ -10,6 +10,11 @@ objects/TDecBinCoderCABAC.r.o: \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComRom.h \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComBitStream.h \
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/Debug.h \
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComCodingStatistics.h \
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComChromaFormat.h \
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComRectangle.h \
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextTables.h \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/Debug.h
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoderCABAC.cpp :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibDecoder/TDecBinCoderCABAC.h :
@@ -22,4 +27,9 @@ objects/TDecBinCoderCABAC.r.o: \
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextModel.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComRom.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComBitStream.h :
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/Debug.h :
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComCodingStatistics.h :
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComChromaFormat.h :
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/TComRectangle.h :
+ /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/ContextTables.h :
  /home/mohammad/Downloads/HM_MV_CNN_Original/HM_MV_CNN/HM_MVX/build/linux/lib/TLibDecoder/../../../../source/Lib/TLibCommon/Debug.h :
