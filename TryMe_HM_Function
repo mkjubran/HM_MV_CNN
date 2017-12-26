@@ -19,6 +19,8 @@ rm ./mbmap/mv_HM.bin
 #%%%%%%%%%% encode and decode using Original HM to encode and decode (from yuv to 265)
 cd ./HM_MVX/bin
 rm mv.bin
+rm mv_bug.dat
+
 sudo ./TAppEncoderStatic -c ../cfg/encoder_Jubran.cfg --InputFile="../vid/box.yuv" --QP=$1 --FramesToBeEncoded=$2 --MaxCUSize=64 --MaxPartitionDepth=4 --BitstreamFile="../vid/box.265"
 sudo ./TAppDecoderStatic --BitstreamFile="../vid/box.265" --ReconFile="box_decoded.yuv"
 cp mv.bin ../../mbmap/mv_dec.bin

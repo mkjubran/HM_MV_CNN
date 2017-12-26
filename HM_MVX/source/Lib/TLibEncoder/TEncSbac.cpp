@@ -1534,6 +1534,27 @@ Void TEncSbac::codeCoeffNxN( TComTU &rTu, TCoeff* pcCoef, const ComponentID comp
   printSBACCoeffData(posLastX, posLastY, uiWidth, uiHeight, compID, uiAbsPartIdx, codingParameters.scanType, pcCoef, pcCU->getSlice()->getFinalized());
 #endif
 
+// added by Jubran
+/* 
+if (pcCU->getSlice()->getFinalized())
+  {
+    std::cout << "Size: " << uiWidth << "x" << uiHeight << ", Last X/Y: (" << posLastX << ", " << posLastY << "), absPartIdx: " << uiAbsPartIdx << ", scanIdx: " << codingParameters.scanType << ", chan: " << compID << "\n";
+    for (Int i=0; i<uiWidth*uiHeight; i++)
+    {
+      std::cout << std::setw(3) << pcCoef[i];// + dcVal;
+      if (i%uiWidth == uiWidth-1)
+      {
+        std::cout << "\n";
+      }
+      else
+      {
+        std::cout << ",";
+      }
+    }
+    std::cout << std::endl;
+  }
+*/
+/// end addition of jubran 
   return;
 }
 

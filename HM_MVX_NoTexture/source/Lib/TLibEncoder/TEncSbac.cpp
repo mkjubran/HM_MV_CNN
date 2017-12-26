@@ -1230,21 +1230,24 @@ Void TEncSbac::codeCoeffNxN( TComTU &rTu, TCoeff* pcCoef, const ComponentID comp
 
 //added by Jubran
 
-if (((int) g_nSymbolCounter) != 0)
+if (pcCU->getSlice()->getFinalized())
 {
-printf("\ng_nSymbolCounter=%6d ...pcCoef",(int) g_nSymbolCounter);
-pcCoef[0]=1;
-printf("%d  ",pcCoef[0]);
-for ( Int i = 1; i < (uiWidth * uiHeight); i++ )
-  {
+  //if (((int) g_nSymbolCounter) != 0)
+  //{
+  //printf("\ng_nSymbolCounter=%6d ...pcCoef",(int) g_nSymbolCounter);
+  pcCoef[0]=1;
+  //printf("%d  ",pcCoef[0]);
+  for ( Int i = 1; i < (uiWidth * uiHeight); i++ )
+    {
     pcCoef[i] = 0;
-//printf("%d  ",pcCoef[i]);
-  }
-printf("\n");
-}
+    //printf("%d  ",pcCoef[i]);
+    }
+  //printf("\n");
+  //}
 uiNumSig=1;
-//pcCoef[0]=0.5;
+}
 //  return;
+
 //end addition by Jubran
 
 
@@ -1551,9 +1554,31 @@ uiNumSig=1;
       }
     }
   }
-#if ENVIRONMENT_VARIABLE_DEBUG_AND_TEST
+#if ENVIRONMENT_VARIABLE_DEBUG_AND_TEST 
   printSBACCoeffData(posLastX, posLastY, uiWidth, uiHeight, compID, uiAbsPartIdx, codingParameters.scanType, pcCoef, pcCU->getSlice()->getFinalized());
-#endif
+#endif 
+
+// added by Jubran 
+/*
+if (pcCU->getSlice()->getFinalized())
+ {
+    std::cout << "Size: " << uiWidth << "x" << uiHeight << ", Last X/Y: (" << posLastX << ", " << posLastY << "), absPartIdx: " << uiAbsPartIdx << ", scanIdx: " << codingParameters.scanType << ", chan: " << compID << "\n";
+    for (Int i=0; i<uiWidth*uiHeight; i++)
+    {
+      std::cout << std::setw(3) << pcCoef[i];// + dcVal;
+      if (i%uiWidth == uiWidth-1)
+      {
+        std::cout << "\n";
+      }
+      else
+      {
+        std::cout << ",";
+      }
+    }
+    std::cout << std::endl;
+ }
+*/
+/// end addition 
 
   return;
 }

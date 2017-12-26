@@ -255,14 +255,14 @@ Void TEncCavlc::codePPS( const TComPPS* pcPPS )
   if (pps_extension_present_flag)
   {
 #if ENC_DEC_TRACE || RExt__DECODER_DEBUG_BIT_STATISTICS
-    static const TChar *syntaxStrings[]={ "pps_range_extension_flag",
-                                          "pps_multilayer_extension_flag",
-                                          "pps_extension_6bits[0]",
-                                          "pps_extension_6bits[1]",
-                                          "pps_extension_6bits[2]",
-                                          "pps_extension_6bits[3]",
-                                          "pps_extension_6bits[4]",
-                                          "pps_extension_6bits[5]" };
+//    static const TChar *syntaxStrings[]={ "pps_range_extension_flag",
+//                                          "pps_multilayer_extension_flag",
+//                                          "pps_extension_6bits[0]",
+//                                          "pps_extension_6bits[1]",
+//                                          "pps_extension_6bits[2]",
+//                                          "pps_extension_6bits[3]",
+//                                          "pps_extension_6bits[4]",
+//                                          "pps_extension_6bits[5]" };
 #endif
 
     for(Int i=0; i<NUM_PPS_EXTENSION_FLAGS; i++)
@@ -597,14 +597,14 @@ Void TEncCavlc::codeSPS( const TComSPS* pcSPS )
   if (sps_extension_present_flag)
   {
 #if ENC_DEC_TRACE || RExt__DECODER_DEBUG_BIT_STATISTICS
-    static const TChar *syntaxStrings[]={ "sps_range_extension_flag",
-                                          "sps_multilayer_extension_flag",
-                                          "sps_extension_6bits[0]",
-                                          "sps_extension_6bits[1]",
-                                          "sps_extension_6bits[2]",
-                                          "sps_extension_6bits[3]",
-                                          "sps_extension_6bits[4]",
-                                          "sps_extension_6bits[5]" };
+//    static const TChar *syntaxStrings[]={ "sps_range_extension_flag",
+//                                          "sps_multilayer_extension_flag",
+//                                          "sps_extension_6bits[0]",
+//                                          "sps_extension_6bits[1]",
+//                                          "sps_extension_6bits[2]",
+//                                          "sps_extension_6bits[3]",
+//                                          "sps_extension_6bits[4]",
+//                                          "sps_extension_6bits[5]" };
 #endif
 
     for(Int i=0; i<NUM_SPS_EXTENSION_FLAGS; i++)

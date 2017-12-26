@@ -64,12 +64,12 @@
 // TODO: rename this macro to DECODER_DEBUG_BIT_STATISTICS (may currently cause merge issues with other branches)
 // This can be enabled by the makefile
 #ifndef RExt__DECODER_DEBUG_BIT_STATISTICS
-#define RExt__DECODER_DEBUG_BIT_STATISTICS                1 ///< 0 (default) = decoder reports as normal, 1 = decoder produces bit usage statistics (will impact decoder run time by up to ~10%) //modified by jubran
+#define RExt__DECODER_DEBUG_BIT_STATISTICS                1 ///< 0 (default) = decoder reports as normal, 1 = decoder produces bit usage statistics (will impact decoder run time by up to ~10%) //modified by jubran and was 0
 #endif
 
 // This can be enabled by the makefile
 #ifndef ENC_DEC_TRACE
-#define ENC_DEC_TRACE                                     1 // modified by jubran was 0
+#define ENC_DEC_TRACE                                     0 // modified by jubran was 0
 #endif
 #define DEC_NUH_TRACE                                     0 ///< When trace enabled, enable tracing of NAL unit headers at the decoder (currently not possible at the encoder)
 
