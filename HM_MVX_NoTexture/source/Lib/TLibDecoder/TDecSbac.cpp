@@ -1271,7 +1271,9 @@ Void TDecSbac::parseCoeffNxN(  TComTU &rTu, ComponentID compID )
   }
 
   //--------------------------------------------------------------------------------------------------
-
+// added by jubran
+// return;
+// end addition by Jubran
   //set parameters
 
   const ChannelType  chType            = toChannelType(compID);

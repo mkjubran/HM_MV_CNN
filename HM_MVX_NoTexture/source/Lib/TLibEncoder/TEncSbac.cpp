@@ -1227,6 +1227,27 @@ Void TEncSbac::codeCoeffNxN( TComTU &rTu, TCoeff* pcCoef, const ComponentID comp
   // compute number of significant coefficients
   UInt uiNumSig = TEncEntropy::countNonZeroCoeffs(pcCoef, uiWidth * uiHeight);
 
+
+//added by Jubran
+
+if (((int) g_nSymbolCounter) != 0)
+{
+printf("\ng_nSymbolCounter=%6d ...pcCoef",(int) g_nSymbolCounter);
+pcCoef[0]=1;
+printf("%d  ",pcCoef[0]);
+for ( Int i = 1; i < (uiWidth * uiHeight); i++ )
+  {
+    pcCoef[i] = 0;
+//printf("%d  ",pcCoef[i]);
+  }
+printf("\n");
+}
+uiNumSig=1;
+//pcCoef[0]=0.5;
+//  return;
+//end addition by Jubran
+
+
   if ( uiNumSig == 0 )
   {
     std::cerr << "ERROR: codeCoeffNxN called for empty TU!" << std::endl;
