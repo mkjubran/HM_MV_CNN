@@ -1235,19 +1235,19 @@ if (pcCU->getSlice()->getFinalized())
   //if (((int) g_nSymbolCounter) != 0)
   //{
   //printf("\ng_nSymbolCounter=%6d ...pcCoef",(int) g_nSymbolCounter);
-  pcCoef[0]=1;
+  //pcCoef[0]=1;
   //printf("%d  ",pcCoef[0]);
-  for ( Int i = 1; i < (uiWidth * uiHeight); i++ )
-    {
-    pcCoef[i] = 0;
+  //for ( Int i = 1; i < (uiWidth * uiHeight); i++ )
+   // {
+    //pcCoef[i] = 0;
     //printf("%d  ",pcCoef[i]);
-    }
+    //}
   //printf("\n");
   //}
-uiNumSig=1;
-}
-//  return;
+//uiNumSig=1;
 
+  return;
+}
 //end addition by Jubran
 
 

@@ -1272,7 +1272,7 @@ Void TDecSbac::parseCoeffNxN(  TComTU &rTu, ComponentID compID )
 
   //--------------------------------------------------------------------------------------------------
 // added by jubran
-// return;
+ return;
 // end addition by Jubran
   //set parameters
 
