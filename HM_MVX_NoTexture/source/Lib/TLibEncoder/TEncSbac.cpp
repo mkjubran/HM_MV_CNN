@@ -919,6 +919,8 @@ Void TEncSbac::codeChromaQpAdjustment( TComDataCU* cu, UInt absPartIdx )
 
 Void TEncSbac::codeQtCbf( TComTU &rTu, const ComponentID compID, const Bool lowestLevel )
 {
+
+return; //added by jubran in order not to write the CBF 
   TComDataCU* pcCU = rTu.getCU();
 
   const UInt absPartIdx   = rTu.GetAbsPartIdxTU(compID);
@@ -929,6 +931,7 @@ Void TEncSbac::codeQtCbf( TComTU &rTu, const ComponentID compID, const Bool lowe
   const UInt width        = rTu.getRect(compID).width;
   const UInt height       = rTu.getRect(compID).height;
   const Bool canQuadSplit = (width >= (MIN_TU_SIZE * 2)) && (height >= (MIN_TU_SIZE * 2));
+
 
   //             Since the CBF for chroma is coded at the highest level possible, if sub-TUs are
   //             to be coded for a 4x8 chroma TU, their CBFs must be coded at the highest 4x8 level
@@ -956,7 +959,8 @@ Void TEncSbac::codeQtCbf( TComTU &rTu, const ComponentID compID, const Bool lowe
       const UInt subTUAbsPartIdx = absPartIdx + (subTU * partIdxesPerSubTU);
       const UInt uiCbf           = pcCU->getCbf(subTUAbsPartIdx, compID, subTUDepth);
 
-      m_pcBinIf->encodeBin(uiCbf, m_cCUQtCbfSCModel.get(0, contextSet, uiCtx));
+
+      m_pcBinIf->encodeBin(uiCbf, m_cCUQtCbfSCModel.get(0, contextSet, uiCtx)); //commented by Jubran
 
       DTRACE_CABAC_VL( g_nSymbolCounter++ )
       DTRACE_CABAC_T( "\tparseQtCbf()" )
@@ -976,7 +980,16 @@ Void TEncSbac::codeQtCbf( TComTU &rTu, const ComponentID compID, const Bool lowe
   else
   {
     const UInt uiCbf = pcCU->getCbf( absPartIdx, compID, lowestTUDepth );
-    m_pcBinIf->encodeBin( uiCbf , m_cCUQtCbfSCModel.get( 0, contextSet, uiCtx ) );
+
+//added by jubran
+//if (pcCU->getCUTransquantBypass(uiAbsPartIdx))
+//  {
+//    printf("\nabsPartIdx=%3d .... uiCbf=%d",absPartIdx,uiCbf);
+//  }
+//end of addition by jubran
+
+
+    m_pcBinIf->encodeBin( uiCbf , m_cCUQtCbfSCModel.get( 0, contextSet, uiCtx ) ); //commented by Jubran
 
 
     DTRACE_CABAC_VL( g_nSymbolCounter++ )
@@ -1228,24 +1241,10 @@ Void TEncSbac::codeCoeffNxN( TComTU &rTu, TCoeff* pcCoef, const ComponentID comp
   UInt uiNumSig = TEncEntropy::countNonZeroCoeffs(pcCoef, uiWidth * uiHeight);
 
 
-//added by Jubran
+//added by Jubran not to write Coefficient
 
 if (pcCU->getSlice()->getFinalized())
 {
-  //if (((int) g_nSymbolCounter) != 0)
-  //{
-  //printf("\ng_nSymbolCounter=%6d ...pcCoef",(int) g_nSymbolCounter);
-  //pcCoef[0]=1;
-  //printf("%d  ",pcCoef[0]);
-  //for ( Int i = 1; i < (uiWidth * uiHeight); i++ )
-   // {
-    //pcCoef[i] = 0;
-    //printf("%d  ",pcCoef[i]);
-    //}
-  //printf("\n");
-  //}
-//uiNumSig=1;
-
   return;
 }
 //end addition by Jubran
