@@ -920,7 +920,7 @@ Void TEncSbac::codeChromaQpAdjustment( TComDataCU* cu, UInt absPartIdx )
 Void TEncSbac::codeQtCbf( TComTU &rTu, const ComponentID compID, const Bool lowestLevel )
 {
 
-return; //added by jubran in order not to write the CBF 
+//return; //added by jubran in order not to write the CBF 
   TComDataCU* pcCU = rTu.getCU();
 
   const UInt absPartIdx   = rTu.GetAbsPartIdxTU(compID);
@@ -980,14 +980,6 @@ return; //added by jubran in order not to write the CBF
   else
   {
     const UInt uiCbf = pcCU->getCbf( absPartIdx, compID, lowestTUDepth );
-
-//added by jubran
-//if (pcCU->getCUTransquantBypass(uiAbsPartIdx))
-//  {
-//    printf("\nabsPartIdx=%3d .... uiCbf=%d",absPartIdx,uiCbf);
-//  }
-//end of addition by jubran
-
 
     m_pcBinIf->encodeBin( uiCbf , m_cCUQtCbfSCModel.get( 0, contextSet, uiCtx ) ); //commented by Jubran
 

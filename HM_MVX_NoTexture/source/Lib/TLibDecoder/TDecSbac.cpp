@@ -1028,7 +1028,7 @@ Void TDecSbac::parseQtCbf( TComTU &rTu, const ComponentID compID, const Bool low
   const UInt lowestTUDepth = TUDepth + ((!lowestLevel && !canQuadSplit) ? 1 : 0); //unsplittable TUs inherit their parent's CBF
         UInt lowestTUCBF   = 0;
 
-return; //added by jubran as the CBF is noot written
+//return; //added by jubran as the CBF is noot written
 
   if ((width != height) && (lowestLevel || !canQuadSplit)) //if sub-TUs are present
   {
