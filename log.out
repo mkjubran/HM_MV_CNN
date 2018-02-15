@@ -1,0 +1,372 @@
+[3;J[H[2J%#######################################################################
+MV QP=40 , MV Resolution=8
+%#######################################################################
+
+HM software: Encoder Version [16.17] (including RExt)[Linux][GCC 5.4.0][64 bit] 
+
+
+Input          File                    : ../vid/box.yuv
+Bitstream      File                    : ../vid/box.265
+Reconstruction File                    : box_rec.yuv
+Real     Format                        : 320x240 25Hz
+Internal Format                        : 320x240 25Hz
+Sequence PSNR output                   : Linear average only
+Sequence MSE output                    : Disabled
+Frame MSE output                       : Disabled
+MS-SSIM output                         : Disabled
+Cabac-zero-word-padding                : Enabled
+Frame/Field                            : Frame based coding
+Frame index                            : 0 - 4 (5 frames)
+Profile                                : main
+CU size / depth / total-depth          : 16 / 2 / 2
+RQT trans. size (min / max)            : 4 / 16
+Max RQT depth inter                    : 3
+Max RQT depth intra                    : 3
+Min PCM size                           : 8
+Motion search range                    : 16
+Intra period                           : 100
+Decoding refresh type                  : 1
+QP                                     : 40
+Max dQP signaling depth                : 0
+Cb QP Offset                           : 0
+Cr QP Offset                           : 0
+QP adaptation                          : 0 (range=0)
+GOP size                               : 1
+Input bit depth                        : (Y:8, C:8)
+MSB-extended bit depth                 : (Y:8, C:8)
+Internal bit depth                     : (Y:8, C:8)
+PCM sample bit depth                   : (Y:8, C:8)
+Intra reference smoothing              : Enabled
+diff_cu_chroma_qp_offset_depth         : -1
+extended_precision_processing_flag     : Disabled
+implicit_rdpcm_enabled_flag            : Disabled
+explicit_rdpcm_enabled_flag            : Disabled
+transform_skip_rotation_enabled_flag   : Disabled
+transform_skip_context_enabled_flag    : Disabled
+cross_component_prediction_enabled_flag: Disabled
+high_precision_offsets_enabled_flag    : Disabled
+persistent_rice_adaptation_enabled_flag: Disabled
+cabac_bypass_alignment_enabled_flag    : Disabled
+log2_sao_offset_scale_luma             : 0
+log2_sao_offset_scale_chroma           : 0
+Cost function:                         : Lossy coding (default)
+RateControl                            : 0
+WPMethod                               : 0
+Max Num Merge Candidates               : 5
+
+TOOL CFG: IBD:0 HAD:1 RDQ:1 RDQTS:1 RDpenalty:0 LQP:0 SQP:0 ASR:0 MinSearchWindow:8 RestrictMESampling:0 FEN:1 ECU:0 FDM:1 CFM:0 ESD:0 RQT:1 TransformSkip:1 TransformSkipFast:1 TransformSkipLog2MaxSize:2 Slice: M=0 SliceSegment: M=0 CIP:0 SAO:1 PCM:0 TransQuantBypassEnabled:0 WPP:0 WPB:0 PME:2  WaveFrontSynchro:0 WaveFrontSubstreams:1 ScalingList:0 TMVPMode:1 AQpS:0 SignBitHidingFlag:1 RecalQP:0
+
+Non-environment-variable-controlled macros set as follows: 
+
+                                RExt__DECODER_DEBUG_BIT_STATISTICS =   1
+                                      RExt__HIGH_BIT_DEPTH_SUPPORT =   0
+                            RExt__HIGH_PRECISION_FORWARD_TRANSFORM =   0
+                                        O0043_BEST_EFFORT_DECODING =   0
+                                         ME_ENABLE_ROUNDING_OF_MVS =   1
+
+                   Input ChromaFormatIDC =   4:2:0
+       Output (internal) ChromaFormatIDC =   4:2:0
+
+POC    0 TId: 0 ( I-SLICE, nQP 40 QP 40 )      18368 bits [Y 29.9088 dB    U 36.0840 dB    V 37.5767 dB] [ET     0 ] [L0 ] [L1 ]
+POC    1 TId: 0 ( P-SLICE, nQP 40 QP 40 )       1408 bits [Y 29.7063 dB    U 35.9987 dB    V 37.5063 dB] [ET     0 ] [L0 0 ] [L1 ]
+POC    2 TId: 0 ( P-SLICE, nQP 40 QP 40 )       1872 bits [Y 29.6684 dB    U 36.0099 dB    V 37.4617 dB] [ET     0 ] [L0 1 0 ] [L1 ]
+POC    3 TId: 0 ( P-SLICE, nQP 40 QP 40 )       2560 bits [Y 29.4180 dB    U 35.7753 dB    V 37.3609 dB] [ET     1 ] [L0 2 1 0 ] [L1 ]
+POC    4 TId: 0 ( P-SLICE, nQP 40 QP 40 )       2056 bits [Y 29.1668 dB    U 35.3911 dB    V 36.9557 dB] [ET     1 ] [L0 3 2 1 ] [L1 ]
+
+
+SUMMARY --------------------------------------------------------
+	Total Frames |   Bitrate     Y-PSNR    U-PSNR    V-PSNR    YUV-PSNR 
+	        5    a     131.3200   29.5737   35.8518   37.3723   30.9115
+
+
+I Slices--------------------------------------------------------
+	Total Frames |   Bitrate     Y-PSNR    U-PSNR    V-PSNR    YUV-PSNR 
+	        1    i     459.2000   29.9088   36.0840   37.5767   31.2436
+
+
+P Slices--------------------------------------------------------
+	Total Frames |   Bitrate     Y-PSNR    U-PSNR    V-PSNR    YUV-PSNR 
+	        4    p      49.3500   29.4899   35.7937   37.3212   30.8323
+
+
+B Slices--------------------------------------------------------
+	Total Frames |   Bitrate     Y-PSNR    U-PSNR    V-PSNR    YUV-PSNR 
+	        0    b         -nan      -nan      -nan      -nan      -nan
+
+RVM: 0.000
+Bytes written to file: 3283 (131.320 kbps)
+
+ Total Time:        2.439 sec.
+
+HM software: Decoder Version [16.17] (including RExt)[Linux][GCC 5.4.0][64 bit] 
+POC    0 TId: 0 ( I-SLICE, QP 40 ) [DT  0.005] [L0 ] [L1 ] [:,(unk)] 
+POC    1 TId: 0 ( P-SLICE, QP 40 ) [DT  0.003] [L0 0 ] [L1 ] [:,(unk)] 
+POC    2 TId: 0 ( P-SLICE, QP 40 ) [DT  0.002] [L0 1 0 ] [L1 ] [:,(unk)] 
+POC    3 TId: 0 ( P-SLICE, QP 40 ) [DT  0.002] [L0 2 1 0 ] [L1 ] [:,(unk)] 
+POC    4 TId: 0 ( P-SLICE, QP 40 ) [DT  0.003] [L0 3 2 1 ] [L1 ] [:,(unk)] 
+
+ Total Time:        0.030 sec.
+Note NAL_UNIT_TOTAL_BODY will be excluded from the total as it should be the sum of all the other entries (except for NAL_UNIT_PACKING)
+ Decoder statistics                           -   Width   Type  CABAC Count    CABAC Sum   CABAC bits     EP Count       EP Sum      EP bits   Total bits ( Total bytes)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ NAL_UNIT_TOTAL_BODY                          :       -      -            0            0            0         3252            0        26016        26016 (        3252) 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ NAL_UNIT_PACKING                             :       -      -            0            0            0           31            0          248          248 (          31) 
+ EMULATION_PREVENTION_3_BYTES                 :       -      -            0            0            0           10            0           80           80 (          10) 
+ NAL_UNIT_HEADER_BITS                         :       -      -            0            0            0            8            0          128          128 (          16) 
+ CABAC_INITIALISATION-and-rounding            :       -      -            5            0           30            0            0            0           30 (           3) 
+ CABAC_BITS__SKIP_FLAG                        :       -      -         1413         1161          789            0            0            0          789 (          98) 
+ CABAC_BITS__MERGE_FLAG                       :       -      -          312          165          312            0            0            0          312 (          39) 
+ CABAC_BITS__MERGE_INDEX                      :       -      -         1326          178          726          263           92          263          989 (         123) 
+ CABAC_BITS__MVP_IDX                          :       -      -          147           64          148            0            0            0          148 (          18) 
+ CABAC_BITS__SPLIT_FLAG                       :      16      -         1500          193          589            0            0            0          589 (          73) 
+[CABAC_BITS__SPLIT_FLAG                       ~  ~~ST~~ ~~ST~~         1500          193          589            0            0            0          589 (          73)]
+ CABAC_BITS__PART_SIZE                        :       8      -          605          414          511            0            0            0          511 (          63) 
+ CABAC_BITS__PART_SIZE                        :      16      -          277          141          246           22           10           22          268 (          33) 
+[CABAC_BITS__PART_SIZE                        ~  ~~ST~~ ~~ST~~          882          555          757           22           10           22          779 (          97)]
+ CABAC_BITS__PRED_MODE                        :       -      -          252           31          125            0            0            0          125 (          15) 
+ CABAC_BITS__INTRA_DIR_ANG                    :       4   Luma          540          427          393          737         2181         1189         1582 (         197) 
+ CABAC_BITS__INTRA_DIR_ANG                    :       8   Luma          374          265          332          507         1857          943         1275 (         159) 
+ CABAC_BITS__INTRA_DIR_ANG                    :      16   Luma          188          152          129          222          579          366          495 (          61) 
+ CABAC_BITS__INTRA_DIR_ANG                    :       8 Chroma          509           87          299           87           92          174          473 (          59) 
+ CABAC_BITS__INTRA_DIR_ANG                    :      16 Chroma          188           25          108           25           39           50          158 (          19) 
+[CABAC_BITS__INTRA_DIR_ANG                    ~  ~~ST~~ ~~ST~~         1799          956         1261         1578         4748         2722         3983 (         497)]
+ CABAC_BITS__REF_FRM_IDX                      :       -      -          120           28           94            0            0            0           94 (          11) 
+ CABAC_BITS__MVD                              :       -      -          509          391          413            0            0            0          413 (          51) 
+ CABAC_BITS__MVD_EP                           :       -      -            0            0            0          738          732          909          909 (         113) 
+ CABAC_BITS__TRANSFORM_SUBDIV_FLAG            :       8      -          654           91          368            0            0            0          368 (          46) 
+ CABAC_BITS__TRANSFORM_SUBDIV_FLAG            :      16      -          249           63          197            0            0            0          197 (          24) 
+[CABAC_BITS__TRANSFORM_SUBDIV_FLAG            ~  ~~ST~~ ~~ST~~          903          154          565            0            0            0          565 (          70)]
+ CABAC_BITS__QT_ROOT_CBF                      :       -      -          171           39          135            0            0            0          135 (          16) 
+ CABAC_BITS__QT_CBF                           :       4      Y          904          421          901            0            0            0          901 (         112) 
+ CABAC_BITS__QT_CBF                           :       8      Y          545          286          471            0            0            0          471 (          58) 
+ CABAC_BITS__QT_CBF                           :      16      Y          159           76          145            0            0            0          145 (          18) 
+ CABAC_BITS__QT_CBF                           :       4     Cb          577          127          422            0            0            0          422 (          52) 
+ CABAC_BITS__QT_CBF                           :       8     Cb          249           49          154            0            0            0          154 (          19) 
+ CABAC_BITS__QT_CBF                           :       4     Cr          561           91          338            0            0            0          338 (          42) 
+ CABAC_BITS__QT_CBF                           :       8     Cr          249           39          126            0            0            0          126 (          15) 
+[CABAC_BITS__QT_CBF                           ~  ~~ST~~ ~~ST~~         3244         1089         2557            0            0            0         2557 (         319)]
+ CABAC_BITS__TRANSFORM_SKIP_FLAGS             :       -      Y          421            6           68            0            0            0           68 (           8) 
+ CABAC_BITS__TRANSFORM_SKIP_FLAGS             :       -     Cb          127            0           12            0            0            0           12 (           1) 
+ CABAC_BITS__TRANSFORM_SKIP_FLAGS             :       -     Cr           91            0            7            0            0            0            7 (           0) 
+[CABAC_BITS__TRANSFORM_SKIP_FLAGS             ~  ~~ST~~ ~~ST~~          639            6           87            0            0            0           87 (          10)]
+ CABAC_BITS__LAST_SIG_X_Y                     :       4      Y         1303          478         1150            0            0            0         1150 (         143) 
+ CABAC_BITS__LAST_SIG_X_Y                     :       8      Y         1265          675         1135           73           32           73         1208 (         151) 
+ CABAC_BITS__LAST_SIG_X_Y                     :      16      Y          444          240          431           31           11           31          462 (          57) 
+ CABAC_BITS__LAST_SIG_X_Y                     :       4     Cb          304           50          183            0            0            0          183 (          22) 
+ CABAC_BITS__LAST_SIG_X_Y                     :       8     Cb           92           14           65            0            0            0           65 (           8) 
+ CABAC_BITS__LAST_SIG_X_Y                     :       4     Cr          196           14           71            0            0            0           71 (           8) 
+ CABAC_BITS__LAST_SIG_X_Y                     :       8     Cr           80           14           58            1            1            1           59 (           7) 
+[CABAC_BITS__LAST_SIG_X_Y                     ~  ~~ST~~ ~~ST~~         3684         1485         3093          105           44          105         3198 (         399)]
+ CABAC_BITS__SIG_COEFF_GROUP_FLAG             :       8      Y           24            5           20            0            0            0           20 (           2) 
+ CABAC_BITS__SIG_COEFF_GROUP_FLAG             :      16      Y           52           34           36            0            0            0           36 (           4) 
+[CABAC_BITS__SIG_COEFF_GROUP_FLAG             ~  ~~ST~~ ~~ST~~           76           39           56            0            0            0           56 (           7)]
+ CABAC_BITS__SIG_COEFF_MAP_FLAG               :       4      Y          964          530          842            0            0            0          842 (         105) 
+ CABAC_BITS__SIG_COEFF_MAP_FLAG               :       8      Y         2079          913         1597            0            0            0         1597 (         199) 
+ CABAC_BITS__SIG_COEFF_MAP_FLAG               :      16      Y         1228          551          960            0            0            0          960 (         120) 
+ CABAC_BITS__SIG_COEFF_MAP_FLAG               :       4     Cb           81           42           66            0            0            0           66 (           8) 
+ CABAC_BITS__SIG_COEFF_MAP_FLAG               :       8     Cb           23           12           21            0            0            0           21 (           2) 
+ CABAC_BITS__SIG_COEFF_MAP_FLAG               :       4     Cr           25           13           17            0            0            0           17 (           2) 
+ CABAC_BITS__SIG_COEFF_MAP_FLAG               :       8     Cr           35           13           26            0            0            0           26 (           3) 
+[CABAC_BITS__SIG_COEFF_MAP_FLAG               ~  ~~ST~~ ~~ST~~         4435         2074         3529            0            0            0         3529 (         441)]
+ CABAC_BITS__GT1_FLAG                         :       4      Y          951          179          599            0            0            0          599 (          74) 
+ CABAC_BITS__GT1_FLAG                         :       8      Y         1193          231          752            0            0            0          752 (          94) 
+ CABAC_BITS__GT1_FLAG                         :      16      Y          593          133          394            0            0            0          394 (          49) 
+ CABAC_BITS__GT1_FLAG                         :       4     Cb          169           17           75            0            0            0           75 (           9) 
+ CABAC_BITS__GT1_FLAG                         :       8     Cb           51            8           34            0            0            0           34 (           4) 
+ CABAC_BITS__GT1_FLAG                         :       4     Cr          104            9           32            0            0            0           32 (           4) 
+ CABAC_BITS__GT1_FLAG                         :       8     Cr           46            7           28            0            0            0           28 (           3) 
+[CABAC_BITS__GT1_FLAG                         ~  ~~ST~~ ~~ST~~         3107          584         1914            0            0            0         1914 (         239)]
+ CABAC_BITS__GT2_FLAG                         :       4      Y          139           26          101            0            0            0          101 (          12) 
+ CABAC_BITS__GT2_FLAG                         :       8      Y          134           23           85            0            0            0           85 (          10) 
+ CABAC_BITS__GT2_FLAG                         :      16      Y           62            5           30            0            0            0           30 (           3) 
+ CABAC_BITS__GT2_FLAG                         :       4     Cb           16            0            5            0            0            0            5 (           0) 
+ CABAC_BITS__GT2_FLAG                         :       8     Cb            8            4           11            0            0            0           11 (           1) 
+ CABAC_BITS__GT2_FLAG                         :       4     Cr            7            1            4            0            0            0            4 (           0) 
+ CABAC_BITS__GT2_FLAG                         :       8     Cr            6            3            7            0            0            0            7 (           0) 
+[CABAC_BITS__GT2_FLAG                         ~  ~~ST~~ ~~ST~~          372           62          243            0            0            0          243 (          30)]
+ CABAC_BITS__SIGN_BIT                         :       4      Y            0            0            0          421          961          833          833 (         104) 
+ CABAC_BITS__SIGN_BIT                         :       8      Y            0            0            0          380         9747         1069         1069 (         133) 
+ CABAC_BITS__SIGN_BIT                         :      16      Y            0            0            0          158        40332          565          565 (          70) 
+ CABAC_BITS__SIGN_BIT                         :       4     Cb            0            0            0          127           90          165          165 (          20) 
+ CABAC_BITS__SIGN_BIT                         :       8     Cb            0            0            0           39           30           50           50 (           6) 
+ CABAC_BITS__SIGN_BIT                         :       4     Cr            0            0            0           91           73          102          102 (          12) 
+ CABAC_BITS__SIGN_BIT                         :       8     Cr            0            0            0           34           36           46           46 (           5) 
+[CABAC_BITS__SIGN_BIT                         ~  ~~ST~~ ~~ST~~            0            0            0         1250        51269         2830         2830 (         353)]
+ CABAC_BITS__ESCAPE_BITS                      :       4      Y            0            0            0          173           42          113          113 (          14) 
+ CABAC_BITS__ESCAPE_BITS                      :       8      Y            0            0            0          382          101          255          255 (          31) 
+ CABAC_BITS__ESCAPE_BITS                      :      16      Y            0            0            0          403          156          312          312 (          39) 
+ CABAC_BITS__ESCAPE_BITS                      :       4     Cb            0            0            0            2            0            1            1 (           0) 
+ CABAC_BITS__ESCAPE_BITS                      :       8     Cb            0            0            0            9            1            5            5 (           0) 
+ CABAC_BITS__ESCAPE_BITS                      :       4     Cr            0            0            0            8            2            5            5 (           0) 
+ CABAC_BITS__ESCAPE_BITS                      :       8     Cr            0            0            0           11            3            7            7 (           0) 
+[CABAC_BITS__ESCAPE_BITS                      ~  ~~ST~~ ~~ST~~            0            0            0          988          305          698          698 (          87)]
+ CABAC_BITS__SAO                              :       -      -         1505         1495          173            0            0            0          173 (          21) 
+ CABAC_TRM_BITS                               :       -      -         1500            5           51            0            0            0           51 (           6) 
+ BYTE_ALIGNMENT_BITS                          :       -      -            0            0            0           10            0           51           51 (           6) 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[CABAC Sub-total                              ~  ~~ST~~ ~~ST~~        27901        10754        17647         5003        57200         8056        25703 (        3212)]
+--CAVLC HEADER BITS-----------------------------------------------------------------------------------------------------------------------------------------------------
+ abs_delta_rps_minus1                         :       -      -                                                   1            0            1            1 (           0) 
+ amp_enabled_flag                             :       -      -                                                   1            1            1            1 (           0) 
+ bit_depth_chroma_minus8                      :       -      -                                                   1            0            1            1 (           0) 
+ bit_depth_luma_minus8                        :       -      -                                                   1            0            1            1 (           0) 
+ cabac_init_flag                              :       -      -                                                   4            0            4            4 (           0) 
+ cabac_init_present_flag                      :       -      -                                                   1            1            1            1 (           0) 
+ chroma_format_idc                            :       -      -                                                   1            1            3            3 (           0) 
+ collocated_ref_idx                           :       -      -                                                   3            0            3            3 (           0) 
+ conf_win_bottom_offset                       :       -      -                                                   1            0            1            1 (           0) 
+ conf_win_left_offset                         :       -      -                                                   1            0            1            1 (           0) 
+ conf_win_right_offset                        :       -      -                                                   1            0            1            1 (           0) 
+ conf_win_top_offset                          :       -      -                                                   1            0            1            1 (           0) 
+ conformance_window_flag                      :       -      -                                                   1            1            1            1 (           0) 
+ constrained_intra_pred_flag                  :       -      -                                                   1            0            1            1 (           0) 
+ cu_qp_delta_enabled_flag                     :       -      -                                                   1            0            1            1 (           0) 
+ deblocking_filter_control_present_flag       :       -      -                                                   1            0            1            1 (           0) 
+ delta_poc_s0_minus1                          :       -      -                                                   4            0            4            4 (           0) 
+ delta_rps_sign                               :       -      -                                                   1            1            1            1 (           0) 
+ dependent_slice_segments_enabled_flag        :       -      -                                                   1            0            1            1 (           0) 
+ entropy_coding_sync_enabled_flag             :       -      -                                                   1            0            1            1 (           0) 
+ first_slice_segment_in_pic_flag              :       -      -                                                   5            5            5            5 (           0) 
+ five_minus_max_num_merge_cand                :       -      -                                                   4            0            4            4 (           0) 
+ general_frame_only_constraint_flag           :       -      -                                                   2            0            2            2 (           0) 
+ general_inbld_flag                           :       -      -                                                   2            0            2            2 (           0) 
+ general_interlaced_source_flag               :       -      -                                                   2            0            2            2 (           0) 
+ general_level_idc                            :       -      -                                                   2          186           16           16 (           2) 
+ general_non_packed_constraint_flag           :       -      -                                                   2            0            2            2 (           0) 
+ general_one_picture_only_constraint_flag     :       -      -                                                   2            0            2            2 (           0) 
+ general_profile_compatibility_flag[][j]      :       -      -                                                  64            4           64           64 (           8) 
+ general_profile_idc                          :       -      -                                                   2            2           10           10 (           1) 
+ general_profile_space                        :       -      -                                                   2            0            4            4 (           0) 
+ general_progressive_source_flag              :       -      -                                                   2            0            2            2 (           0) 
+ general_reserved_zero_35bits[0..15]          :       -      -                                                   2            0           32           32 (           4) 
+ general_reserved_zero_35bits[16..31]         :       -      -                                                   2            0           32           32 (           4) 
+ general_reserved_zero_35bits[32..34]         :       -      -                                                   2            0            6            6 (           0) 
+ general_reserved_zero_7bits                  :       -      -                                                   2            0           14           14 (           1) 
+ general_tier_flag                            :       -      -                                                   2            0            2            2 (           0) 
+ init_qp_minus26                              :       -      -                                                   1            0            1            1 (           0) 
+ inter_ref_pic_set_prediction_flag            :       -      -                                                   3            1            3            3 (           0) 
+ lists_modification_present_flag              :       -      -                                                   1            0            1            1 (           0) 
+ log2_diff_max_min_luma_coding_block_size     :       -      -                                                   1            1            3            3 (           0) 
+ log2_diff_max_min_luma_transform_block_size  :       -      -                                                   1            2            3            3 (           0) 
+ log2_max_pic_order_cnt_lsb_minus4            :       -      -                                                   1            4            5            5 (           0) 
+ log2_min_luma_coding_block_size_minus3       :       -      -                                                   1            0            1            1 (           0) 
+ log2_min_luma_transform_block_size_minus2    :       -      -                                                   1            0            1            1 (           0) 
+ log2_parallel_merge_level_minus2             :       -      -                                                   1            0            1            1 (           0) 
+ long_term_ref_pics_present_flag              :       -      -                                                   1            0            1            1 (           0) 
+ max_transform_hierarchy_depth_inter          :       -      -                                                   1            2            3            3 (           0) 
+ max_transform_hierarchy_depth_intra          :       -      -                                                   1            2            3            3 (           0) 
+ no_output_of_prior_pics_flag                 :       -      -                                                   1            0            1            1 (           0) 
+ num_extra_slice_header_bits                  :       -      -                                                   1            0            3            3 (           0) 
+ num_negative_pics                            :       -      -                                                   3            4            9            9 (           1) 
+ num_positive_pics                            :       -      -                                                   3            0            3            3 (           0) 
+ num_ref_idx_active_override_flag             :       -      -                                                   4            2            4            4 (           0) 
+ num_ref_idx_l0_active_minus1                 :       -      -                                                   2            1            4            4 (           0) 
+ num_ref_idx_l0_default_active_minus1         :       -      -                                                   1            2            3            3 (           0) 
+ num_ref_idx_l1_default_active_minus1         :       -      -                                                   1            2            3            3 (           0) 
+ num_short_term_ref_pic_sets                  :       -      -                                                   1            4            5            5 (           0) 
+ output_flag_present_flag                     :       -      -                                                   1            0            1            1 (           0) 
+ pcm_enabled_flag                             :       -      -                                                   1            0            1            1 (           0) 
+ pic_height_in_luma_samples                   :       -      -                                                   1          240           15           15 (           1) 
+ pic_width_in_luma_samples                    :       -      -                                                   1          320           17           17 (           2) 
+ pps_cb_qp_offset                             :       -      -                                                   1            0            1            1 (           0) 
+ pps_cr_qp_offset                             :       -      -                                                   1            0            1            1 (           0) 
+ pps_extension_present_flag                   :       -      -                                                   1            0            1            1 (           0) 
+ pps_loop_filter_across_slices_enabled_flag   :       -      -                                                   1            1            1            1 (           0) 
+ pps_pic_parameter_set_id                     :       -      -                                                   1            0            1            1 (           0) 
+ pps_scaling_list_data_present_flag           :       -      -                                                   1            0            1            1 (           0) 
+ pps_seq_parameter_set_id                     :       -      -                                                   1            0            1            1 (           0) 
+ pps_slice_chroma_qp_offsets_present_flag     :       -      -                                                   1            0            1            1 (           0) 
+ rbsp_alignment_zero_bit                      :       -      -                                                  11            0           11           11 (           1) 
+ rbsp_stop_one_bit                            :       -      -                                                   3            3            3            3 (           0) 
+ sample_adaptive_offset_enabled_flag          :       -      -                                                   1            1            1            1 (           0) 
+ scaling_list_enabled_flag                    :       -      -                                                   1            0            1            1 (           0) 
+ short_term_ref_pic_set_idx                   :       -      -                                                   4            3            8            8 (           1) 
+ short_term_ref_pic_set_sps_flag              :       -      -                                                   4            4            4            4 (           0) 
+ sign_data_hiding_enabled_flag                :       -      -                                                   1            1            1            1 (           0) 
+ slice_loop_filter_across_slices_enabled_flag :       -      -                                                   5            5            5            5 (           0) 
+ slice_pic_order_cnt_lsb                      :       -      -                                                   4           10           32           32 (           4) 
+ slice_pic_parameter_set_id                   :       -      -                                                   5            0            5            5 (           0) 
+ slice_qp_delta                               :       -      -                                                   5           70           45           45 (           5) 
+ slice_sao_chroma_flag                        :       -      -                                                   5            5            5            5 (           0) 
+ slice_sao_luma_flag                          :       -      -                                                   5            5            5            5 (           0) 
+ slice_segment_header_extension_present_flag  :       -      -                                                   1            0            1            1 (           0) 
+ slice_temporal_mvp_enabled_flag              :       -      -                                                   4            4            4            4 (           0) 
+ slice_type                                   :       -      -                                                   5            6           15           15 (           1) 
+ sps_extension_present_flag                   :       -      -                                                   1            0            1            1 (           0) 
+ sps_max_dec_pic_buffering_minus1[i]          :       -      -                                                   1            3            5            5 (           0) 
+ sps_max_latency_increase_plus1[i]            :       -      -                                                   1            0            1            1 (           0) 
+ sps_max_num_reorder_pics[i]                  :       -      -                                                   1            0            1            1 (           0) 
+ sps_max_sub_layers_minus1                    :       -      -                                                   1            0            3            3 (           0) 
+ sps_seq_parameter_set_id                     :       -      -                                                   1            0            1            1 (           0) 
+ sps_sub_layer_ordering_info_present_flag     :       -      -                                                   1            1            1            1 (           0) 
+ sps_temporal_id_nesting_flag                 :       -      -                                                   1            1            1            1 (           0) 
+ sps_temporal_mvp_enabled_flag                :       -      -                                                   1            1            1            1 (           0) 
+ sps_video_parameter_set_id                   :       -      -                                                   1            0            4            4 (           0) 
+ strong_intra_smoothing_enable_flag           :       -      -                                                   1            1            1            1 (           0) 
+ tiles_enabled_flag                           :       -      -                                                   1            0            1            1 (           0) 
+ transform_skip_enabled_flag                  :       -      -                                                   1            1            1            1 (           0) 
+ transquant_bypass_enabled_flag               :       -      -                                                   1            0            1            1 (           0) 
+ used_by_curr_pic_flag                        :       -      -                                                   2            2            2            2 (           0) 
+ used_by_curr_pic_s0_flag                     :       -      -                                                   4            4            4            4 (           0) 
+ vps_base_layer_available_flag                :       -      -                                                   1            1            1            1 (           0) 
+ vps_base_layer_internal_flag                 :       -      -                                                   1            1            1            1 (           0) 
+ vps_extension_flag                           :       -      -                                                   1            0            1            1 (           0) 
+ vps_max_dec_pic_buffering_minus1[i]          :       -      -                                                   1            3            5            5 (           0) 
+ vps_max_latency_increase_plus1[i]            :       -      -                                                   1            0            1            1 (           0) 
+ vps_max_layer_id                             :       -      -                                                   1            0            6            6 (           0) 
+ vps_max_layers_minus1                        :       -      -                                                   1            0            6            6 (           0) 
+ vps_max_num_reorder_pics[i]                  :       -      -                                                   1            0            1            1 (           0) 
+ vps_max_sub_layers_minus1                    :       -      -                                                   1            0            3            3 (           0) 
+ vps_num_layer_sets_minus1                    :       -      -                                                   1            0            1            1 (           0) 
+ vps_reserved_0xffff_16bits                   :       -      -                                                   1        65535           16           16 (           2) 
+ vps_sub_layer_ordering_info_present_flag     :       -      -                                                   1            1            1            1 (           0) 
+ vps_temporal_id_nesting_flag                 :       -      -                                                   1            1            1            1 (           0) 
+ vps_timing_info_present_flag                 :       -      -                                                   1            0            1            1 (           0) 
+ vps_video_parameter_set_id                   :       -      -                                                   1            0            4            4 (           0) 
+ vui_parameters_present_flag                  :       -      -                                                   1            0            1            1 (           0) 
+ weighted_bipred_flag                         :       -      -                                                   1            0            1            1 (           0) 
+ weighted_pred_flag                           :       -      -                                                   1            0            1            1 (           0) 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[CAVLC Header Sub-total                       ~  ~~ST~~ ~~ST~~                                                 274        66463          561          561 (          70)]
+--CABAC Break down by size----------------------------------------------------------------------------------------------------------------------------------------------
+ CABAC by size Sub-total                      =       -    All         7899         3563         3083         1060          824         1679         4762 (         595) 
+ CABAC by size Sub-total                      =       4    All         6841         2425         5199         1559         3349         2408         7607 (         950) 
+ CABAC by size Sub-total                      =       8    All         8221         3153         6100         1523        11900         2623         8723 (        1090) 
+ CABAC by size Sub-total                      =      16    All         4940         1613         3265          861        41127         1346         4611 (         576) 
+--Break down by component/Channel type----------------------------------------------------------------------------------------------------------------------------------
+ CABAC by type Sub-total                      =       -      -        10545         4459         4907         1082          834         1701         6608 (         826) 
+ CABAC by type Sub-total                      =       -      Y        12460         4812         9717         2021        51382         3251        12968 (        1621) 
+ CABAC by type Sub-total                      =       -     Cb         1697          323         1048          177          121          221         1269 (         158) 
+ CABAC by type Sub-total                      =       -     Cr         1400          204          714          145          115          161          875 (         109) 
+ CABAC by type Sub-total                      =       -   Luma         1102          844          854         1466         4617         2498         3352 (         419) 
+ CABAC by type Sub-total                      =       - Chroma          697          112          407          112          131          224          631 (          78) 
+--Break down by size and component/Channel type-------------------------------------------------------------------------------------------------------------------------
+ CABAC by size and type Sub-total             =       -      -         7260         3557         2996         1060          824         1679         4675 (         584) 
+ CABAC by size and type Sub-total             =       8      -         1259          505          879            0            0            0          879 (         109) 
+ CABAC by size and type Sub-total             =      16      -         2026          397         1032           22           10           22         1054 (         131) 
+ CABAC by size and type Sub-total             =       -      Y          421            6           68            0            0            0           68 (           8) 
+ CABAC by size and type Sub-total             =       4      Y         4261         1634         3593          594         1003          946         4539 (         567) 
+ CABAC by size and type Sub-total             =       8      Y         5240         2133         4060          835         9880         1397         5457 (         682) 
+ CABAC by size and type Sub-total             =      16      Y         2538         1039         1996          592        40499          908         2904 (         363) 
+ CABAC by size and type Sub-total             =       -     Cb          127            0           12            0            0            0           12 (           1) 
+ CABAC by size and type Sub-total             =       4     Cb         1147          236          751          129           90          166          917 (         114) 
+ CABAC by size and type Sub-total             =       8     Cb          423           87          285           48           31           55          340 (          42) 
+ CABAC by size and type Sub-total             =       -     Cr           91            0            7            0            0            0            7 (           0) 
+ CABAC by size and type Sub-total             =       4     Cr          893          128          462           99           75          107          569 (          71) 
+ CABAC by size and type Sub-total             =       8     Cr          416           76          245           46           40           54          299 (          37) 
+ CABAC by size and type Sub-total             =       4   Luma          540          427          393          737         2181         1189         1582 (         197) 
+ CABAC by size and type Sub-total             =       8   Luma          374          265          332          507         1857          943         1275 (         159) 
+ CABAC by size and type Sub-total             =      16   Luma          188          152          129          222          579          366          495 (          61) 
+ CABAC by size and type Sub-total             =       8 Chroma          509           87          299           87           92          174          473 (          59) 
+ CABAC by size and type Sub-total             =      16 Chroma          188           25          108           25           39           50          158 (          19) 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[CABAC Sub-total                              ~  ~~ST~~ ~~ST~~        27901        10754        17647         5003        57200         8056        25703 (        3212)]
+[CAVLC Header Sub-total                       ~  ~~ST~~ ~~ST~~                                                 274        66463          561          561 (          70)]
+--GRAND TOTAL-----------------------------------------------------------------------------------------------------------------------------------------------------------
+[TOTAL                                        ~  ~~GT~~ ~~GT~~        27901        10754        17647         5277       123663         8617        26264 (        3283)]
+
+
+Mabing MV of JM software to 8x8 grid
+.....
+

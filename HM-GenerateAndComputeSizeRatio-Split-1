@@ -79,7 +79,7 @@ done
 #### End Parsing Command Line Parameters
 
 # Hardcoded Parameters
-NumFrame=30000
+NumFrame=300000
 IndexLastVideo=$((IndexFirstVideo + NumVideos - 1))
 #%%%%%%%%%% Read file list and identify the location of the video and the MV output file name
 if [ $SetType = "train" ] || [ $SetType = "Train" ];
@@ -111,7 +111,7 @@ echo "UCF-101 Split Set = $TTSet, Set type (train/test)=$SetType, Index of First
 echo %########################################################################################
 
 cnt1=$IndexFirstVideo;
-cnt2=300; #increment 
+cnt2=1; #increment 
 while [ $cnt1 -le $IndexLastVideo ]
 do
 Line=${Lines[$cnt1]}
@@ -126,7 +126,6 @@ AbsFileName=$Directory"/"$FileNameP1.$FileNameP2
 PerCompleted1=$((100*(cnt1-IndexFirstVideo+1)/(IndexLastVideo-IndexFirstVideo+1)))
 PerCompleted2=$((100*(cnt1-IndexFirstVideo+1)%(IndexLastVideo-IndexFirstVideo+1)))
 echo "($StrComment, $SetType) processing video file number $cnt1  [$IndexFirstVideo - $IndexLastVideo] ($AbsFileName) ... $PerCompleted1.$PerCompleted2% completed .. $(date +"%d-%m-%y %T")"
-
 
 
 #%% check if the MV alreadyy made and stored
@@ -158,8 +157,9 @@ fi
 
 rm ../vid/HMEncodedVideo.265
 #rm -rf ./FrameStats.dat
+rm -rf ./logNoTexture
 
-./TAppEncoderStatic -c ../cfg/$enc_cfg --InputFile="../vid/HMInputVideo.yuv" --QP=$QP --FramesToBeEncoded=$NumFrame --MaxCUSize=$MaxCUSize --MaxPartitionDepth=$MaxPartitionDepth --BitstreamFile="../vid/HMEncodedVideo.265" > /dev/null
+./TAppEncoderStatic -c ../cfg/$enc_cfg --InputFile="../vid/HMInputVideo.yuv" --QP=$QP --FramesToBeEncoded=$NumFrame --MaxCUSize=$MaxCUSize --MaxPartitionDepth=$MaxPartitionDepth --BitstreamFile="../vid/HMEncodedVideo.265" > logNoTexture #/dev/null
 
 if [ ! -e "../vid/HMEncodedVideo.265" ] ; then
 echo "Problem with encoding [$AbsFileName] yuv to 265, ../vid/HMEncodedVideo.265 is not generated"
@@ -167,13 +167,15 @@ break
 fi
 
 SizeNoTexture=`ls -la ../vid/HMEncodedVideo.265` #% to display the size of file
-echo $SizeNoTexture > stats.dat
-#cat logNoTexture >> stats.dat
+echo $AbsFileName > stats.dat
+echo $SizeNoTexture >> stats.dat
 
 #%%%%%%%%%% Decoding FileName from .265 to .yuv using HM decoder"
 rm mv.bin > /dev/null 2>&1
-rm ../vid/HMDecodedVideo.yuv
-./TAppDecoderStatic --BitstreamFile="../vid/HMEncodedVideo.265" --ReconFile="../vid/HMDecodedVideo.yuv" > /dev/null
+rm ../vid/HMDecodedVideo.yuv > /dev/null 2>&1
+./TAppDecoderStatic --BitstreamFile="../vid/HMEncodedVideo.265" --ReconFile="../vid/HMDecodedVideo.yuv" >> logNoTexture #> /dev/null
+
+cat logNoTexture >> stats.dat
 
 if [ ! -e "../vid/HMDecodedVideo.yuv" ] ; then
 echo "Problem with decoding [$AbsFileName].265 to yuv, ../vid/HMDecodedVideo.yuv is not generated"
@@ -204,9 +206,11 @@ echo "../cfg/$enc_cfg" "doesn't exit"
 break
 fi
 
-rm ./vid/HMEncodedVideo.265
-rm -rf ./FrameStats.dat
-./TAppEncoderStatic -c ../cfg/$enc_cfg --InputFile="../vid/HMInputVideo.yuv" --QP=$QP --FramesToBeEncoded=$NumFrame --MaxCUSize=$MaxCUSize --MaxPartitionDepth=$MaxPartitionDepth --BitstreamFile="../vid/HMEncodedVideo.265" > /dev/null
+rm ../vid/HMEncodedVideo.265 > /dev/null 2>&1
+#rm -rf ../FrameStats.dat
+rm -rf ./logOrig
+
+./TAppEncoderStatic -c ../cfg/$enc_cfg --InputFile="../vid/HMInputVideo.yuv" --QP=$QP --FramesToBeEncoded=$NumFrame --MaxCUSize=$MaxCUSize --MaxPartitionDepth=$MaxPartitionDepth --BitstreamFile="../vid/HMEncodedVideo.265" > logOrig #/dev/null
 
 if [ ! -e "../vid/HMEncodedVideo.265" ] ; then
 echo "Problem with encoding [$AbsFileName] yuv to 265, ../vid/HMEncodedVideo.265 is not generated"
@@ -214,8 +218,23 @@ break
 fi
 
 SizeOrig=`ls -la ../vid/HMEncodedVideo.265`  #% to display the size of file
-echo $SizeOrig > stats.dat
-#cat logOrig >> stats.dat
+echo $AbsFileName > stats.dat
+echo $SizeOrig >> stats.dat
+
+
+
+#%%%%%%%%%% Decoding FileName from .265 to .yuv using HM decoder"
+rm mv.bin > /dev/null 2>&1
+rm ../vid/HMDecodedVideo.yuv > /dev/null 2>&1
+
+./TAppDecoderStatic --BitstreamFile="../vid/HMEncodedVideo.265" --ReconFile="../vid/HMDecodedVideo.yuv" >> logOrig #> /dev/null
+
+cat logOrig >> stats.dat
+
+if [ ! -e "../vid/HMDecodedVideo.yuv" ] ; then
+echo "Problem with decoding [$AbsFileName].265 to yuv, ../vid/HMDecodedVideo.yuv is not generated"
+break
+fi
 
 cd ../../HM_MVX_NoTexture/bin #% moveing back to the Original HM Directory
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
