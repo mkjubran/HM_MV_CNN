@@ -14,7 +14,7 @@ IndexFirstVideo=0		#Index of first video to be encoded [1,2, .... ]
 NumVideos=100			#Number of Video files to be encoded
 StrComment="_A"			#Comment to be added at the end of the directory that will be made (if doesn't exist) to contain the output MVs
 Overwrite=1			#Overwrite any exisitng MV files in the directory
-PathWay="../HMMV"
+PathWay="../HMMV/HM_Sample"
 
 
 ## Parsing Command Line Parameters
@@ -284,7 +284,7 @@ done < <(paste $HMStatsNoTextureFileName)
 
 #%%%%%%%%%% Check if directory exist otherwise make it, and then move the MV file to the directory after naming it appropriately"
 
-echo $NumFrames_Orig $TotalSize_Orig $MVD_Orig $MVD_EP_Orig $NumFrames_NoTexture $TotalSize_NoTexture $MVD_NoTexture $MVD_EP_NoTexture $AbsFileName >> $StatsFile 
+echo $cnt1 $NumFrames_Orig $TotalSize_Orig $MVD_Orig $MVD_EP_Orig $NumFrames_NoTexture $TotalSize_NoTexture $MVD_NoTexture $MVD_EP_NoTexture $AbsFileName >> $StatsFile 
 fi
 
 cnt1=$((cnt1 + cnt2))
