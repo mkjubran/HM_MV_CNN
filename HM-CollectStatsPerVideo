@@ -3,7 +3,7 @@ clear
 
 # Set initial default parameters
 enc_cfg=encoder_Jubran.cfg	#HM encoder configuration file
-QP=40	 			#value [0 - 51]
+QP=30	 			#value [0 - 51]
 MaxCUSize=16			#Maximum CU size which plays a factor in setting the resolution of MVs
 MaxPartitionDepth=1		#Maximum parition depth which plays a factor in setting the resolution of the MVs
 SearchRange=16			#value [16,32,64]
@@ -11,7 +11,7 @@ mbmapXxX=4			#value [8,16]
 SetType="train"			#value [0:Train Set,1: Test Set]
 TTSet=01			#UCF-101 Split Set [01 02 03]
 IndexFirstVideo=0		#Index of first video to be encoded [1,2, .... ]
-NumVideos=3			#Number of Video files to be encoded
+NumVideos=100			#Number of Video files to be encoded
 StrComment="_A"			#Comment to be added at the end of the directory that will be made (if doesn't exist) to contain the output MVs
 Overwrite=1			#Overwrite any exisitng MV files in the directory
 PathWay="../HMMV"
@@ -106,6 +106,49 @@ IndexLastVideo=${#Lines[@]}
 fi
 TotalVideos=$((IndexLastVideo-IndexFirstVideo+1))
 
+
+if ! [ -d $PathWay ]
+then
+mkdir $PathWay/
+fi
+
+
+if [ $SetType = "train" ]
+then
+ 
+ if ! [ -d $PathWay/HMStats_NoTexture_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment ]
+ then
+ mkdir $PathWay/HMStats_NoTexture_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment
+ fi
+
+ if ! [ -d $PathWay/HMStats_OrigHM_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment ]
+ then
+ mkdir $PathWay/HMStats_OrigHM_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment
+ fi
+
+StatsFile=$PathWay/HMStats_Orig_NoTexure_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment.dat
+
+else
+
+ if ! [ -d $PathWay/HMStats_NoTexture_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment ]
+ then
+ mkdir $PathWay/HMStats_NoTexture_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment 
+ fi
+
+ if ! [ -d $PathWay/HMStats_OrigHM_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment ]
+ then
+ mkdir $PathWay/HMStats_OrigHM_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment
+ fi
+
+StatsFile=$PathWay/HMStats_Orig_NoTexure_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment.dat
+fi
+
+if [[ ($Overwrite == "1") ]]
+then
+rm -rf $StatsFile;
+fi
+
+
 #%%%%%%%%%% Hidder General Info
 echo %########################################################################################
 echo "HM config file=${enc_cfg}, QP=$QP, Max CU Size=$MaxCUSize, Max Partition Depth=$MaxPartitionDepth, Search Range=$SearchRange, MV Resolution=$mbmapXxX"
@@ -141,41 +184,14 @@ fi
 
 if [ $SetType = "train" ]
 then
- 
- if ! [ -d $PathWay/HMStats_NoTexture_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment ]
- then
- mkdir $PathWay/HMStats_NoTexture_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment
- fi
-
- if ! [ -d $PathWay/HMStats_OrigHM_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment ]
- then
- mkdir $PathWay/HMStats_OrigHM_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment
- fi
-
 HMStatsNoTextureFileName=$PathWay/HMStats_NoTexture_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment/HMStats_$FileNameP1.dat
 HMStatsOrigFileName=$PathWay/HMStats_OrigHM_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment/HMStats_$FileNameP1.dat
-StatsFile=$PathWay/HMStats_Orig_NoTexure_Train$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment.dat
-
 else
-
- if ! [ -d $PathWay/HMStats_NoTexture_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment ]
- then
- mkdir $PathWay/HMStats_NoTexture_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment 
- fi
-
- if ! [ -d $PathWay/HMStats_OrigHM_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment ]
- then
- mkdir $PathWay/HMStats_OrigHM_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment
- fi
-
 HMStatsNoTextureFileName=$PathWay/HMStats_NoTexture_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment/HMStats_$FileNameP1.dat
 HMStatsOrigFileName=$PathWay/HMStats_OrigHM_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment/HMStats_$FileNameP1.dat
-StatsFile=$PathWay/HMStats_Orig_NoTexure_Test$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment.dat
-
 fi
 
 #%% check if the Stats files exist and not of zero size
-
 if [[ (! -s $HMStatsNoTextureFileName) || (! -s $HMStatsOrigFileName) || (! -e $HMStatsNoTextureFileName) || (! -e $HMStatsOrigFileName) ]]
 then
 #echo "one or more of the following files doesn't exit or of zero size: $HMStatsNoTextureFileName, $HMStatsOrigFileName"
@@ -190,6 +206,8 @@ else
 TotalSize_Orig=0;
 MVD_Orig=0;
 MVD_EP_Orig=0;
+NumFrames_Orig=0;
+ReadNumFrames_Orig=0;
 while IFS=$'\t' read -r JMSLine
 do
 #  printf 'f1: %s\n' "$JMSLine"
@@ -209,6 +227,16 @@ do
     MVD_EP_Orig=$(echo ${JMSLine_array1[10]} | tr -d ' ')
   fi
 
+  if [[ $ReadNumFrames_Orig == "1" ]]
+  then
+    NumFrames_Orig=$(echo ${JMSLine_array1[0]} | tr -d ' ')
+    ReadNumFrames_Orig=2;
+  fi
+
+  if [[ ("${JMSLine_array1[0]}" == "Total") && ("${JMSLine_array1[1]}" == "Frames") && ($ReadNumFrames_Orig == "0") ]]
+  then
+    ReadNumFrames_Orig=1;
+  fi
 done < <(paste $HMStatsOrigFileName)
 
 #echo $TotalSize_Orig $MVD_Orig $MVD_EP_Orig
@@ -218,6 +246,8 @@ done < <(paste $HMStatsOrigFileName)
 TotalSize_NoTexture=0;
 MVD_NoTexture=0;
 MVD_EP_NoTexture=0;
+NumFrames_NoTexture=0;
+ReadNumFrames_NoTexture=0;
 while IFS=$'\t' read -r JMSLine
 do
 #  printf 'f1: %s\n' "$JMSLine"
@@ -237,13 +267,24 @@ do
     MVD_EP_NoTexture=$(echo ${JMSLine_array1[10]} | tr -d ' ')
   fi
 
+if [[ $ReadNumFrames_NoTexture == "1" ]]
+  then
+    NumFrames_NoTexture=$(echo ${JMSLine_array1[0]} | tr -d ' ')
+    ReadNumFrames_NoTexture=2;
+  fi
+
+  if [[ ("${JMSLine_array1[0]}" == "Total") && ("${JMSLine_array1[1]}" == "Frames") && ($ReadNumFrames_NoTexture == "0") ]]
+  then
+    ReadNumFrames_NoTexture=1;
+  fi
+
 done < <(paste $HMStatsNoTextureFileName)
 
 #echo $TotalSize_NoTexture $MVD_NoTexture $MVD_EP_NoTexture
 
 #%%%%%%%%%% Check if directory exist otherwise make it, and then move the MV file to the directory after naming it appropriately"
 
-echo $TotalSize_Orig $MVD_Orig $MVD_EP_Orig $TotalSize_NoTexture $MVD_NoTexture $MVD_EP_NoTexture $AbsFileName >> $StatsFile 
+echo $NumFrames_Orig $TotalSize_Orig $MVD_Orig $MVD_EP_Orig $NumFrames_NoTexture $TotalSize_NoTexture $MVD_NoTexture $MVD_EP_NoTexture $AbsFileName >> $StatsFile 
 fi
 
 cnt1=$((cnt1 + cnt2))
