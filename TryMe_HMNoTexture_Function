@@ -20,8 +20,8 @@ rm ./mbmap/mv_HM.bin
 cd ./HM_MVX_NoTexture/bin
 rm mv.bin
 rm mv_bug.dat
-sudo ./TAppEncoderStatic -c ../cfg/encoder_Jubran.cfg --InputFile="../vid/box.yuv" --QP=$1 --FramesToBeEncoded=$2 --MaxCUSize=16 --MaxPartitionDepth=2 --BitstreamFile="../vid/box.265"
-sudo ./TAppDecoderStatic --BitstreamFile="../vid/box.265" --ReconFile="box_decoded.yuv"
+sudo ./TAppEncoderStatic -c ../cfg/encoder_Jubran.cfg --InputFile="../vid/box.yuv" --QP=$1 --FramesToBeEncoded=$2 --MaxCUSize=16 --MaxPartitionDepth=1 --BitstreamFile="../vid/box.bin"
+sudo ./TAppDecoderStatic --BitstreamFile="../vid/box.bin" --ReconFile="box_decoded.yuv"
 cp mv.bin ../../mbmap/mv_dec.bin
 
 #%%%%%%%%%% Extracting the MVs
