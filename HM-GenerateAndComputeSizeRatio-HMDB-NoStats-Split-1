@@ -85,11 +85,11 @@ IndexLastVideo=$((IndexFirstVideo + NumVideos - 1))
 if [ $SetType = "train" ] || [ $SetType = "Train" ];
 then
 SetType="train"
-InputFileList="../../HMDBTrainTestlist/trainlist"$TTSet".txt"
+InputFileList="./HMDB_trainlist"$TTSet".txt"
 else if [ $SetType = "test" ] || [ $SetType = "Test" ];
 then
 SetType="test"
-InputFileList="../../HMDBTrainTestlist/testlist"$TTSet".txt"
+InputFileList="./HMDB_testlist"$TTSet".txt"
 else
 echo "$SetType is not recognized as set type. It must be train or test"
 exit 1
