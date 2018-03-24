@@ -68,7 +68,7 @@ if [ $VideoSet = "UCF" ]
 fi
 
 
-
+cnt=$((cnt+Inc));
 i=$((i+1));
 cd ..
 done
