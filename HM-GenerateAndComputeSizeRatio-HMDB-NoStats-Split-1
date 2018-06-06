@@ -129,7 +129,7 @@ echo "($StrComment, $SetType) processing video file number $cnt1  [$IndexFirstVi
 
 
 #%% check if the MV already made and stored
-if [[ ((($Overwrite -eq 1) || (($SetType = "train") && (! -e "../HMMV/HMMV_Train"$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment"/HMMV_$FileNameP1.bin"))) || (($Overwrite -eq 1) || (($SetType = "test") && (! -e "../HMMV/HMMV_Test"$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment"/HMMV_$FileNameP1.bin")))) ]] ; 
+if [[ ((($Overwrite -eq 1) || (($SetType = "train") && (! -e "../HMMV/HMMV_HMDB_Train"$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment"/HMMV_$FileNameP1.bin"))) || (($Overwrite -eq 1) || (($SetType = "test") && (! -e "../HMMV/HMMV_HMDB_Test"$TTSet"_QP"$QP"_MCU"$MaxCUSize"_MDepth"$MaxPartitionDepth"_MVSR"$SearchRange"_MVRes"$mbmapXxX$StrComment"/HMMV_$FileNameP1.bin")))) ]] ; 
 then
 
 #%%%%%%%%%% Transcoding FileName from .avi to .yuv and store the output yuv file in ./vid/"
